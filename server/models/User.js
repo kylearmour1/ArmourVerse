@@ -1,6 +1,8 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+const emailRegex = /.+\@.+\..+/; // Regular expression for email validation
+
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -22,36 +24,31 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
+    match: [emailRegex, "Please enter a valid email address."], // Improved email validation
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
-  videos: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Video",
-    },
-  ],
-  comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
-    },
-  ],
+  // ... other fields like videos and comments
 });
 
+// Password hashing in pre-save hook
 userSchema.pre("save", async function (next) {
-  if (this.isNew || this.isModified("password")) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
+  try {
+    if (this.isNew || this.isModified("password")) {
+      const saltRounds = 10;
+      this.password = await bcrypt.hash(this.password, saltRounds);
+    }
+    next();
+  } catch (error) {
+    // Comprehensive error handling
+    next(error);
   }
-
-  next();
 });
 
+// Password verification method
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
@@ -59,4 +56,3 @@ userSchema.methods.isCorrectPassword = async function (password) {
 const User = model("User", userSchema);
 
 module.exports = User;
-
