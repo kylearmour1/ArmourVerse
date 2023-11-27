@@ -4,7 +4,7 @@ const secret = process.env.JWT_SECRET || 'yourSecretKey'; // Use an environment 
 
 // Middleware to generate a token
 const generateToken = (user) => {
-  return jwt.sign({ data: user }, secret, { expiresIn: '1h' }); // Adjust expiration as needed
+  return jwt.sign({ id: user.id }, secret, { expiresIn: '1h' }); // Adjust expiration as needed
 };
 
 // Middleware to verify a token

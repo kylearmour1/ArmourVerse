@@ -20,8 +20,13 @@ router.post('/signup', async (req, res) => {
       const { email, password } = req.body;
       const user = await User.findOne({ email });
   
-      if (!user || !await user.isCorrectPassword(password)) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+      if (!user) {
+        return res.status(401).json({ message: 'User not found' });
+      }
+  
+      const validPassword = await user.isCorrectPassword(password);
+      if (!validPassword) {
+        return res.status(401).json({ message: 'Incorrect password' });
       }
   
       const token = generateToken(user);
@@ -30,5 +35,6 @@ router.post('/signup', async (req, res) => {
       res.status(500).json(err);
     }
   });
+  
 
 module.exports = router;
