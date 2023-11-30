@@ -1,34 +1,19 @@
 {
-
   "scripts": {
-
-    "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\""
-
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "develop": "concurrently \"npm run install:server\" \"npm run install:client\" \"cd server && npm start\" \"cd client && npm start\""
   },
-
   "devDependencies": {
-
     "concurrently": "^8.2.2",
-
     "tailwindcss": "^3.3.5"
-
   },
-
   "dependencies": {
-
     "@emotion/react": "^11.11.1",
-
     "@emotion/styled": "^11.11.0",
-
     "@mui/icons-material": "^5.14.18",
-
     "@mui/material": "^5.14.18",
-
     "bcryptjs": "^2.4.3",
-
     "jsonwebtoken": "^9.0.2"
-
   }
-
 }
-
