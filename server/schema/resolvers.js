@@ -1,6 +1,4 @@
-// server/schema/resolvers.js
 const { User } = require('../models');
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const resolvers = {
@@ -8,44 +6,33 @@ const resolvers = {
     // Define resolvers for any queries you have
   },
   Mutation: {
-    // async login(_, { username, password }) {
-    //   const user = await User.findOne({ username });
-    //   if (!user || !await bcrypt.compare(password, user.password)) {
-    //     throw new Error('Incorrect credentials');
-    //   }
-    //   const token = jwt.sign({ id: user.id }, 'yourSecretKey', { expiresIn: '24h' });
-    //   return { token, user };
-    // },
-
+    // Login Mutation
     async login(_, { email, password }) {
       const user = await User.findOne({ email });
       if (!user) {
         throw new Error('User not found');
       }
+
+      // Removed the additional parameter from isCorrectPassword
       const validPassword = await user.isCorrectPassword(password);
       if (!validPassword) {
         throw new Error('Incorrect password');
       }
-      const token = jwt.sign({ id: user.id }, 'yourSecretKey', { expiresIn: '24h' });
+
+      // Utilizing the JWT_SECRET from .env for token generation
+      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '24h' });
       return { token, user };
     },
-    
 
-
+    // Signup Mutation
     async signup(_, { username, email, password, firstName, lastName }) {
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const user = await User.create({ username, email, password: hashedPassword, firstName, lastName });
-  const token = jwt.sign({ id: user.id }, 'yourSecretKey', { expiresIn: '24h' });
-  return { token, user };
-},
-
-
-    // async signup(_, { username, email, password }) {
-    //   const hashedPassword = await bcrypt.hash(password, 10);
-    //   const user = await User.create({ username, email, password: hashedPassword });
-    //   const token = jwt.sign({ id: user.id }, 'yourSecretKey', { expiresIn: '24h' });
-    //   return { token, user };
-    // },
+      // Password hashing is handled in the User model's pre-save hook
+      const user = await User.create({ username, email, password, firstName, lastName });
+      
+      // Utilizing the JWT_SECRET from .env for token generation
+      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '24h' });
+      return { token, user };
+    },
   },
 };
 
