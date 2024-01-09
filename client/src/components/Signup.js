@@ -4,21 +4,22 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
+import { SIGNUP_MUTATION } from './Mutations'
 
 // GraphQL mutation for signup
-const SIGNUP_MUTATION = gql`
-  mutation Signup($username: String!, $email: String!, $password: String!, $firstName: String!, $lastName: String!) {
-    signup(username: $username, email: $email, password: $password, firstName: $firstName, lastName: $lastName) {
-      token
-      user {
-        id
-        username
-        email
-      }
-    }
-  }
-`;
+// const SIGNUP_MUTATION = gql`
+//   mutation Signup($username: String!, $email: String!, $password: String!, $firstName: String!, $lastName: String!) {
+//     signup(username: $username, email: $email, password: $password, firstName: $firstName, lastName: $lastName) {
+//       token
+//       user {
+//         id
+//         username
+//         email
+//       }
+//     }
+//   }
+// `;
 
 function Signup() {
   const [firstName, setFirstName] = useState('');
