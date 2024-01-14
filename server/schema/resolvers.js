@@ -56,6 +56,29 @@ const resolvers = {
     // Add other query resolvers as necessary
   },
   Mutation: {
+
+    //delete mutation
+
+    async deletePost(_, { postId }, context) {
+      // Optional: Check if the user is logged in
+      if (!context.user) {
+        throw new Error("You must be logged in to delete a post");
+      }
+
+      // Optional: Check if the user is the author of the post
+      const post = await Post.findById(postId);
+      if (!post) {
+        throw new Error("Post not found");
+      }
+      if (post.author.toString() !== context.user.id) {
+        throw new Error("You do not have permission to delete this post");
+      }
+
+      await Post.findByIdAndDelete(postId);
+      return post;
+    },
+  
+
     // Login Mutation
     async login(_, { email, password }) {
       const user = await User.findOne({ email });
@@ -77,6 +100,9 @@ const resolvers = {
       return { token, user };
     },
 
+
+    
+
     // Create Post Mutation
     async createPost(_, { content }, context) {
       if (!context.user) {
@@ -95,6 +121,12 @@ const resolvers = {
       return User.findById(post.author);
     },
   },
+
+
+
+  
+
+
 };
 
 module.exports = resolvers;

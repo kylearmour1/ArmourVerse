@@ -62,8 +62,10 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     signup(username: String!, email: String!, password: String!, firstName: String!, lastName: String!): Auth
     createPost(content: String!): Post
-    # Define other mutations as needed
+    deletePost(postId: ID!): Post
+    
   }
+
 `;
 
 module.exports = typeDefs;

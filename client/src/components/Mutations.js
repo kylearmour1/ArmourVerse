@@ -42,22 +42,11 @@ export const CREATE_POST_MUTATION = gql`
     createPost(content: $content) {
       id
       content
+      
       # Add any other fields you need
     }
   }
 `;
-
-// Add FETCH_POSTS_QUERY
-// export const FETCH_POSTS_QUERY = gql`
-//   query {
-//     posts {
-//       id
-//       content
-      
-//       # Add any other fields you need
-//     }
-//   }
-// `;
 
 
 
@@ -67,7 +56,17 @@ export const FETCH_POSTS_QUERY = gql`
       id
       content
       
-      # Add any other fields you need
+      
+  
+    }
+  }
+`;
+
+
+export const DELETE_POST_MUTATION = gql`
+  mutation deletePost($postId: ID!) {
+    deletePost(postId: $postId) {
+      id
     }
   }
 `;
