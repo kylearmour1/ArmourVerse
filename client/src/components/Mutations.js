@@ -36,5 +36,38 @@ export const SIGNUP_MUTATION = gql`
     }
   }
 `;
+// Add CREATE_POST_MUTATION
+export const CREATE_POST_MUTATION = gql`
+  mutation CreatePost($content: String!) {
+    createPost(content: $content) {
+      id
+      content
+      # Add any other fields you need
+    }
+  }
+`;
+
+// Add FETCH_POSTS_QUERY
+// export const FETCH_POSTS_QUERY = gql`
+//   query {
+//     posts {
+//       id
+//       content
+      
+//       # Add any other fields you need
+//     }
+//   }
+// `;
 
 
+
+export const FETCH_POSTS_QUERY = gql`
+  query {
+    posts {
+      id
+      content
+      
+      # Add any other fields you need
+    }
+  }
+`;
