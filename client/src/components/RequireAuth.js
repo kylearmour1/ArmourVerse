@@ -1,23 +1,4 @@
-// // src/components/RequireAuth.js
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
 
-// function RequireAuth(Component) {
-//   return function AuthenticatedComponent(props) {
-//     const navigate = useNavigate();
-//     const token = localStorage.getItem('token');
-
-//     React.useEffect(() => {
-//       if (!token) {
-//         navigate('/');
-//       }
-//     }, [token, navigate]);
-
-//     return <Component {...props} />;
-//   };
-// }
-
-// export default RequireAuth;
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 

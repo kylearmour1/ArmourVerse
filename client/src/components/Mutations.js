@@ -63,6 +63,23 @@ export const FETCH_POSTS_QUERY = gql`
 `;
 
 
+// export const FETCH_POSTS_QUERY = gql`
+//   query {
+//     posts {
+//       id
+//       content
+//       author {
+//         id
+//         username
+//         firstName  
+//         lastName   
+//       }
+//     }
+//   }
+// `;
+
+
+
 export const DELETE_POST_MUTATION = gql`
   mutation deletePost($postId: ID!) {
     deletePost(postId: $postId) {
