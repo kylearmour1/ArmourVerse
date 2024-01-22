@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
@@ -37,7 +38,7 @@ function Home() {
       <main className="p-4">
         <form onSubmit={handleSubmit} className="mb-4">
           <textarea
-            className="w-full p-2 border border-gray-300 rounded text-black" // Added 'text-black' class
+            className="w-full p-2 border border-gray-300 rounded text-black"
             placeholder="What's on your mind?"
             value={postContent}
             onChange={(e) => setPostContent(e.target.value)}
@@ -56,3 +57,9 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
+

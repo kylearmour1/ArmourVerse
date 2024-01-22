@@ -83,27 +83,26 @@ export default function Header({ onLogout }) {
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
-      anchor
-      El={anchorEl}
+      anchorEl={anchorEl} // Corrected prop
       anchorOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
+        vertical: 'top',
+        horizontal: 'right',
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
+        vertical: 'top',
+        horizontal: 'right',
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
-      >
+    >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      {/* Adding Logout MenuItem */}
       <MenuItem onClick={onLogout}>Logout</MenuItem>
-      </Menu>
-      );
+    </Menu>
+  );
+  
       
       const mobileMenuId = 'primary-search-account-menu-mobile';
       const renderMobileMenu = (

@@ -42,43 +42,24 @@ export const CREATE_POST_MUTATION = gql`
     createPost(content: $content) {
       id
       content
-      
+
       # Add any other fields you need
     }
   }
 `;
-
-
 
 export const FETCH_POSTS_QUERY = gql`
   query {
     posts {
       id
       content
-      
-      
-  
+      author {
+        id
+        username
+      }
     }
   }
 `;
-
-
-// export const FETCH_POSTS_QUERY = gql`
-//   query {
-//     posts {
-//       id
-//       content
-//       author {
-//         id
-//         username
-//         firstName  
-//         lastName   
-//       }
-//     }
-//   }
-// `;
-
-
 
 export const DELETE_POST_MUTATION = gql`
   mutation deletePost($postId: ID!) {
@@ -87,3 +68,27 @@ export const DELETE_POST_MUTATION = gql`
     }
   }
 `;
+
+export const FETCH_USER_QUERY = gql`
+  query User($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      firstName
+      lastName
+      email
+    }
+  }
+`;
+
+// export const FETCH_POSTS_QUERY = gql`
+//   query {
+//     posts {
+//       id
+//       content
+
+//     }
+//   }
+// `;
+
+// client\src\components\Mutations.js

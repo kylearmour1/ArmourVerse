@@ -1,21 +1,21 @@
-
-
-
-
-
-const { User, Post } = require('../models');
-const jwt = require('jsonwebtoken');
+const { User, Post } = require("../models");
+const jwt = require("jsonwebtoken");
 
 const resolvers = {
   Query: {
     // Fetch all posts
     async posts() {
-      return await Post.find().populate('author');
+      const posts = await Post.find().populate("author");
+      console.log(posts); // Log the fetched posts
+      return posts;
     },
     // Add other query resolvers as necessary
+    async user(_, { username }) {
+      return await User.findOne({ username });
+    },
+    
   },
   Mutation: {
-
     //delete mutation
 
     async deletePost(_, { postId }, context) {
@@ -36,31 +36,37 @@ const resolvers = {
       await Post.findByIdAndDelete(postId);
       return post;
     },
-  
 
     // Login Mutation
     async login(_, { email, password }) {
       const user = await User.findOne({ email });
       if (!user) {
-        throw new Error('User not found');
+        throw new Error("User not found");
       }
       const validPassword = await user.isCorrectPassword(password);
       if (!validPassword) {
-        throw new Error('Incorrect password');
+        throw new Error("Incorrect password");
       }
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '24h' });
+      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+        expiresIn: "24h",
+      });
       return { token, user };
     },
 
     // Signup Mutation
     async signup(_, { username, email, password, firstName, lastName }) {
-      const user = await User.create({ username, email, password, firstName, lastName });
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '24h' });
+      const user = await User.create({
+        username,
+        email,
+        password,
+        firstName,
+        lastName,
+      });
+      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+        expiresIn: "24h",
+      });
       return { token, user };
     },
-
-
-    
 
     // Create Post Mutation
     async createPost(_, { content }, context) {
@@ -74,20 +80,27 @@ const resolvers = {
       return await newPost.save();
     },
   },
+  // Post: {
+  //   author(post) {
+  //     // Assuming post.author contains the ID of the user
+  //     return User.findById(post.author);
+  //   },
+  // },
+
   Post: {
-    // Populate author field in Post
     author(post) {
-      return User.findById(post.author);
+      // Check if 'post.author' is already populated
+      if (post.author && typeof post.author === 'object') {
+        // If it's an object, it means it's already populated, so just return it
+        return post.author;
+      } else {
+        // If not, it's likely an ID, so fetch the user
+        return User.findById(post.author);
+      }
     },
   },
-
-
-
   
-
-
+  
 };
 
 module.exports = resolvers;
-
-

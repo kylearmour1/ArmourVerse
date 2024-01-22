@@ -5,18 +5,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from './Mutations'
 
-// GraphQL mutation for login
-// const LOGIN_MUTATION = gql`
-//   mutation Login($email: String!, $password: String!) {
-//     login(email: $email, password: $password) {
-//       token
-//       user {
-//         id
-//         email
-//       }
-//     }
-//   }
-// `;
 
 function Login() {
   const [email, setEmail] = useState('');
