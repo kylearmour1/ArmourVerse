@@ -50,6 +50,7 @@ function Home() {
             Post
           </button>
         </form>
+        <h1>Hi</h1>
         <PostFeed />
       </main>
     </div>

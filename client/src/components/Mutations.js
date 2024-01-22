@@ -56,6 +56,7 @@ export const FETCH_POSTS_QUERY = gql`
       author {
         id
         username
+        
       }
     }
   }
@@ -74,21 +75,10 @@ export const FETCH_USER_QUERY = gql`
     user(username: $username) {
       _id
       username
+      email
       firstName
       lastName
-      email
+    
     }
   }
 `;
-
-// export const FETCH_POSTS_QUERY = gql`
-//   query {
-//     posts {
-//       id
-//       content
-
-//     }
-//   }
-// `;
-
-// client\src\components\Mutations.js

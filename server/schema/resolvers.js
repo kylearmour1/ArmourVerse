@@ -10,9 +10,34 @@ const resolvers = {
       return posts;
     },
     // Add other query resolvers as necessary
+    // async user(_, { username }) {
+    //   try {
+    //     const user = await User.findOne({ username });
+    //     if (!user) {
+    //       throw new Error('User not found');
+    //     }
+    //     return user;
+    //   } catch (error) {
+    //     // Log the error or handle it as needed
+    //     console.error('Error fetching user:', error);
+    //     throw error; // Re-throw the error to be handled by GraphQL
+    //   }
+    // }
     async user(_, { username }) {
-      return await User.findOne({ username });
-    },
+      console.log("Fetching user with username:", username); // Log the received username
+      try {
+        const user = await User.findOne({ username });
+        console.log("User found:", user); // Log the found user
+
+        if (!user) {
+          throw new Error('User not found');
+        }
+        return user;
+      } catch (error) {
+        console.error('Error fetching user:', error); // Log any errors
+        throw error;
+      }
+    }
     
   },
   Mutation: {
@@ -80,12 +105,7 @@ const resolvers = {
       return await newPost.save();
     },
   },
-  // Post: {
-  //   author(post) {
-  //     // Assuming post.author contains the ID of the user
-  //     return User.findById(post.author);
-  //   },
-  // },
+
 
   Post: {
     author(post) {
