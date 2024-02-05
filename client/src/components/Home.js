@@ -50,7 +50,7 @@ function Home() {
             Post
           </button>
         </form>
-        <h1>Hi</h1>
+        <h1></h1>
         <PostFeed />
       </main>
     </div>
@@ -58,9 +58,4 @@ function Home() {
 }
 
 export default Home;
-
-
-
-
-
 

@@ -1,43 +1,42 @@
 
-// import React from "react";
-// import { useQuery, useMutation } from "@apollo/client";
 
-// import { FETCH_USER_QUERY } from "./Mutations"; // Import the query for fetching user data
+// import React from "react";
+// import { useParams } from "react-router-dom";
+// import { useQuery } from "@apollo/client";
+// import { FETCH_USER_QUERY } from "./Mutations";
 
 // function UserProfile() {
-//   const { loading, error, data, refetch } = useQuery(FETCH_USER_QUERY, {
-//     variables: { username: "username_here" }, // Replace "username_here" with the actual username you want to fetch
+//   const { username } = useParams();
+  
+//   // Execute the GraphQL query
+//   const { loading, error, data } = useQuery(FETCH_USER_QUERY, {
+//     variables: { username },
 //   });
 
-//   if (loading) return <p>Loading user data...</p>;
-//   if (error) {
-//     console.log("Error loading user data:", error);
-//     return <p>Error loading user data!</p>;
-//   }
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>Error :(</p>;
 
-//   if (!data || !data.user) {
-//     console.log("User data not available");
-//     return <p>User data not available</p>;
-//   }
-
-//   const user = data.user;
+//   // Destructuring data from the query response
+//   const { user } = data;
 
 //   return (
 //     <div className="user-profile">
 //       <h1>User Profile</h1>
-//       <p>Username: {user.username}</p>
-//       <p>First Name: {user.firstName}</p>
-//       <p>Last Name: {user.lastName}</p>
-//       <p>Email: {user.email}</p>
-
-//       {/* Add code here to display the user's mutations if applicable */}
+//       <p>
+//         <strong>Username:</strong> {user.username}
+//       </p>
+//       <p>
+//         <strong>Email:</strong> {user.email}
+//       </p>
+      
+      
+//       {/* Add any other user information you want to display */}
 //     </div>
 //   );
 // }
 
 // export default UserProfile;
 
-// client/src/components/UserProfile.js
 
 import React from "react";
 import { useParams } from "react-router-dom";
@@ -46,38 +45,32 @@ import { FETCH_USER_QUERY } from "./Mutations";
 
 function UserProfile() {
   const { username } = useParams();
+  
+  // Execute the GraphQL query
   const { loading, error, data } = useQuery(FETCH_USER_QUERY, {
     variables: { username },
   });
 
-  if (loading) return <p>Loading user information...</p>;
-  if (error) {
-    console.log("Error loading user information:", error);
-    return <p>Error loading user information!</p>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
 
-  if (!data || !data.user) {
-    console.log("User not found");
-    return <p>User not found</p>;
-  }
-
-  const user = data.user;
+  // Destructuring data from the query response
+  const { user } = data;
 
   return (
-    <div className="user-profile">
-      <h1>User Profile</h1>
-      <p>
-        <strong>Username:</strong> {user.username}
-      </p>
-      <p>
-        <strong>Email:</strong> {user.email}
-      </p>
-      <p>
-        <strong>First Name:</strong> {user.firstName}
-      </p>
-      <p>
-        <strong>Last Name:</strong> {user.lastName}
-      </p>
+    <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className="flex items-center">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="User Profile"
+          className="h-16 w-16 rounded-full object-cover"
+        />
+        <div className="ml-4">
+          <h1 className="text-2xl font-semibold">{user.username}</h1>
+          <p className="text-gray-600">{user.email}</p>
+        </div>
+      </div>
+      
       {/* Add any other user information you want to display */}
     </div>
   );
