@@ -1,0 +1,43 @@
+<svg version="1.1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"><rect width="100%" height="100%" fill="#000000" fill-opacity="1"/><svg viewBox="-326.9111 362.3728 236.5715 222" width="333" height="312.48903608422825" x="83.5px" y="93.7555px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none"><defs></defs><style>.aRWrrEA-PR0filter-floo {flood-color:#E9B0D6;flood-opacity:0.5;}.atUk6sjh6M0filter-floo {flood-color:#FFFFFF;flood-opacity:0.89;}.companyName {fill:#FFFFFF;fill-opacity:1;}.icon3 {fill:#F55139;fill-opacity:1;}.icon3-str {stroke:#F55139;stroke-opacity:1;}.shape-floo {flood-color:#2525CE;flood-opacity:1;}.text {fill:#F3F3F3;fill-opacity:1;}</style><defs>
+      <filter
+        x="-326.9111"
+        y="362.3728"
+        width="236.5715"
+        height="222"
+        id="ikYEXSHZT"
+        filterUnits="userSpaceOnUse"
+        primitiveUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB">
+        
+    <feGaussianBlur in="SourceGraphic" stdDeviation="7"/>
+    <feOffset dx="3.860375059564381" dy="3.860375059564381" result="knneQPcQTMy"/>
+    <feFlood flood-color="#2525CE" flood-opacity="1" in="knneQPcQTMy" />
+    <feComposite  in2="knneQPcQTMy" operator="in" result="L0WFN8lz76M"/><feMerge result="pxWZzoi6bUX"><feMergeNode in="L0WFN8lz76M" /><feMergeNode in="SourceGraphic" /></feMerge><feGaussianBlur  result="AVL0JJD1vYv" stdDeviation="10" />
+      </filter>
+      <filter
+        x="-291.771"
+        y="397.5124"
+        width="158.5705"
+        height="144"
+        id="tUk6sjh6M"
+        filterUnits="userSpaceOnUse"
+        primitiveUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB">
+        
+    <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+    <feOffset dx="0" dy="0" result="x-4UVGit9Oy"/>
+    <feFlood flood-color="#FFFFFF" flood-opacity="0.89" in="x-4UVGit9Oy" />
+    <feComposite  in2="x-4UVGit9Oy" operator="in" result="a3Itjq0JI4pj"/><feMerge result="-80BCfp2-n1"><feMergeNode in="a3Itjq0JI4pj" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter></defs><g opacity="1" transform="rotate(0 -255.6674 557.5124)">
+<svg width="86.3633" height="16.8" x="-255.6674" y="557.5124" version="1.1" preserveAspectRatio="none" viewBox="0.12 -26.8 139.4 27.12">
+  <g transform="matrix(1 0 0 1 0 0)" class="text"><path id="id-6izo4zJp5" d="M21.72-26.48L25-26.48L14.28 0L10.84 0L0.12-26.48L3.40-26.48L12.56-3.40L21.72-26.48Z M51.84-23.60L35.36-23.60L35.36-14.72L50.08-14.72L50.08-11.80L35.36-11.80L35.36-2.88L51.84-2.88L51.84 0L32.36 0L32.36-26.48L51.84-26.48L51.84-23.60Z M63.68-10.16L63.68 0L60.68 0L60.68-26.48L73.36-26.48Q77.40-26.48 79.84-24.24L79.84-24.24Q82.28-22.04 82.28-18.20L82.28-18.20Q82.28-13.24 78.16-11.44L78.16-11.44Q77-10.92 75.88-10.68L75.88-10.68L82.84 0L79.28 0L72.88-10.16L63.68-10.16ZM63.68-23.64L63.68-13L72.84-13Q77.08-13 78.68-15.64L78.68-15.64Q79.28-16.64 79.28-18.20L79.28-18.20Q79.28-20.72 77.56-22.18Q75.84-23.64 73-23.64L73-23.64L63.68-23.64Z M94.48-22.42Q93.72-21.76 93.46-20.96Q93.20-20.16 93.20-19.26Q93.20-18.36 93.98-17.60Q94.76-16.84 96.04-16.32Q97.32-15.80 98.96-15.40Q100.60-15 102.30-14.58Q104-14.16 105.64-13.62Q107.28-13.08 108.56-12.24L108.56-12.24Q111.40-10.44 111.40-7.32L111.40-7.32Q111.40-3.60 108.62-1.64Q105.84 0.32 100.92 0.32L100.92 0.32Q95.36 0.32 92.44-2L92.44-2Q89.84-4.08 89.48-7.92L89.48-7.92L92.60-7.92Q92.76-5.20 95.24-3.76L95.24-3.76Q97.40-2.52 100.96-2.52L100.96-2.52Q108.40-2.52 108.40-7.20L108.40-7.20Q108.40-8.80 107.06-9.72Q105.72-10.64 103.70-11.24Q101.68-11.84 99.34-12.36Q97-12.88 94.98-13.70Q92.96-14.52 91.62-15.86Q90.28-17.20 90.28-19.48L90.28-19.48Q90.28-22.72 92.76-24.76Q95.24-26.80 100.24-26.80L100.24-26.80Q105.28-26.80 108.04-24.48L108.04-24.48Q110.56-22.44 110.72-19.24L110.72-19.24L107.64-19.24Q107.24-22.52 103.40-23.60L103.40-23.60Q102.04-24 100.02-24Q98-24 96.62-23.54Q95.24-23.08 94.48-22.42Z M139.52-23.60L123.04-23.60L123.04-14.72L137.76-14.72L137.76-11.80L123.04-11.80L123.04-2.88L139.52-2.88L139.52 0L120.04 0L120.04-26.48L139.52-26.48L139.52-23.60Z"/></g>
+</svg>
+</g><g filter="url(#ikYEXSHZT)"><g opacity="1" transform="rotate(0 -279.7715 409.5124)">
+<svg width="134.5715" height="120" x="-279.7715" y="409.5124" version="1.1" preserveAspectRatio="none" viewBox="-2.52 -28 31.4 28">
+  <g transform="matrix(1 0 0 1 0 0)" class="icon3"><path id="id-BEGfasMba1" d="M22.40 0L21.08-6L8.04-6L4.40 0L-2.52 0L15.60-28L22-28L28.88 0L22.40 0ZM11.04-10.92L20-10.92L17.64-21.72L11.04-10.92Z"/></g>
+</svg>
+</g></g><g filter="url(#tUk6sjh6M)"><g opacity="1" transform="rotate(0 -279.771 409.5124)">
+<svg width="134.5705" height="120" x="-279.771" y="409.5124" version="1.1" preserveAspectRatio="none" viewBox="-0.36 -28 31.4 28">
+  <g transform="matrix(1 0 0 1 0 0)" class="companyName"><path id="id-D6z1nYkh1" d="M24.24 0L21.76-6L8.76-6L6.28 0L-0.36 0L12.12-28L18.52-28L31.04 0L24.24 0ZM10.84-10.92L19.72-10.92L15.28-21.64L10.84-10.92Z"/></g>
+</svg>
+</g></g></svg></svg>

@@ -9,6 +9,8 @@ const typeDefs = gql`
     email: String!
     firstName: String!
     lastName: String!
+    
+  
     # // Add other user fields as necessary
   }
 
@@ -40,3 +42,7 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+
+
+

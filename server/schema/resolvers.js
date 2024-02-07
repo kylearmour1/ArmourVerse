@@ -50,6 +50,10 @@ const resolvers = {
       return post;
     },
 
+
+    
+
+
     // Login Mutation
     async login(_, { email, password }) {
       const user = await User.findOne({ email });
@@ -112,3 +116,4 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+

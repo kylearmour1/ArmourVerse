@@ -71,18 +71,6 @@ export const DELETE_POST_MUTATION = gql`
   }
 `;
 
-// export const FETCH_USER_QUERY = gql`
-//   query User($username: String!) {
-//     user(username: $username) {
-//       _id
-//       username
-//       email
-//       firstName
-//       lastName
-    
-//     }
-//   }
-// `;
 
 
 export const FETCH_USER_QUERY = gql`
